@@ -1,0 +1,22 @@
+{
+  "name": "INTEGRA SALUD",
+  "short_name": "IntegraSalud",
+  "description": "Asesoria en EPS, ARL, medicina prepagada y planes complementarios en Colombia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0B2A5B",
+  "lang": "es-CO",
+  "icons": [
+    {
+      "src": "/assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
