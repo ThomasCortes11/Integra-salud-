@@ -24,7 +24,7 @@ Landing one-page estatica, lista para abrir con doble clic en `index.html` y des
    - `services`, `alliedEntities`, `faqs`, `testimonials`, `cta`, `legal`
    - `analytics.ga4Id` y `analytics.metaPixelId` (opcionales)
 2. Reemplaza logo e imagenes en `assets/`:
-   - `logo.svg`
+   - `logo-oficial.png` (logo oficial)
    - `hero-family.webp`
    - `og-image.jpg` (1200x630)
    - Favicons (`favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`, `favicon-192.png`, `favicon-512.png`)

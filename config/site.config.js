@@ -28,11 +28,11 @@ window.SITE_CONFIG = {
     linkedin: "https://www.linkedin.com/"
   },
   theme: {
-    navy: "#0B2A5B",
-    emerald: "#0E8F6E",
-    graphite: "#4A5568",
+    navy: "#07142A",
+    emerald: "#2AF6B0",
+    graphite: "#8EA3C4",
     white: "#FFFFFF",
-    gold: "#C9A24B"
+    gold: "#39C0FF"
   },
   hero: {
     badge: "Asesoria en salud para personas, familias y empresas",
