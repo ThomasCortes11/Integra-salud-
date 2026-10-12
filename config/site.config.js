@@ -14,6 +14,11 @@ window.SITE_CONFIG = {
     whatsappDefaultMessage: "Hola, quiero asesoría en salud con INTEGRA SALUD.",
     phoneLink: "tel:+573184479028",
   },
+  /** Horario de atención (hora de Colombia). Días: 0 = domingo … 6 = sábado. */
+  schedule: [
+    { days: [1, 2, 3, 4, 5], open: "07:00", close: "17:00" },
+    { days: [6], open: "07:00", close: "12:00" },
+  ],
   analytics: {
     /** ID de Google Analytics 4 (ej. "G-XXXXXXX"). Vacío = desactivado. */
     ga4Id: "",

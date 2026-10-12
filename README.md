@@ -29,6 +29,8 @@ Todos los botones de WhatsApp (16) llevan un mensaje distinto. Cuando escriba un
 | Quiero cambiar… | Dónde |
 | --- | --- |
 | Número de WhatsApp, mensaje por defecto, teléfono | `config/site.config.js` **y** busca `3184479028` en `index.html` (Ctrl+F → reemplazar todo) |
+| Horario | `config/site.config.js` → `schedule` (aviso automático “Estamos atendiendo ahora” / “te respondemos mañana…”) **y** los textos de horario en `index.html` |
+| Entidades | `index.html`, sección `ENTIDADES` |
 | Textos, servicios, preguntas frecuentes | `index.html` (cada sección está marcada con un comentario `<!-- ===== -->`) |
 | Colores | `css/styles.css`, al inicio (`--navy-900`, `--wa`, etc.) |
 | Google Analytics / Pixel de Meta | `config/site.config.js` → `analytics.ga4Id` y `analytics.metaPixelId` |
@@ -94,16 +96,14 @@ favicon.ico, site.webmanifest, sitemap.xml, robots.txt
 
 ## ✅ Pendientes del cliente
 
-- [ ] Confirmar o comprar el dominio `integrasalud.co`.
-- [ ] Correo propio del negocio (p. ej. `contacto@integrasalud.co`) en lugar de `Saludtotal390@gmail.com`.
-- [ ] Razón social y NIT (o cédula) del responsable, para la política de datos.
-- [ ] Confirmar que la cifra “+500 personas asesoradas” es real.
-- [ ] Confirmar el costo de la asesoría (si es gratis, decirlo vende más: “Asesoría sin costo”).
-- [ ] Confirmar con qué entidades se trabaja realmente (Colmédica, Allianz, Sura, Salud Total, Compensar).
-- [ ] Horario de atención.
-- [ ] Testimonios reales con autorización (nombre, ciudad y texto).
+**Ya definido:** asesoría sin costo para el cliente · NIT 53092222 · horario L-V 7:00 a. m.–5:00 p. m. y sábados 7:00 a. m.–12:00 m. · entidades: Sura, Sanitas, Colsanitas, Compensar, Nueva EPS, Salud Total, Famisanar y Colmédica · correo actual `Saludtotal390@gmail.com`.
+
+- [ ] Comprar el dominio (`integrasalud.co` u otro) y, si cambia, reemplazarlo como se indica arriba.
+- [ ] (Opcional) correo propio con el dominio, p. ej. `contacto@integrasalud.co`.
+- [ ] Confirmar que la cifra “+500 personas asesoradas” es real (en `index.html`, sección héroe).
+- [ ] Testimonios reales con autorización (nombre, ciudad y texto), cuando los haya.
 - [ ] Foto real del asesor o del equipo (aumenta mucho la confianza).
-- [ ] Enlaces reales de Instagram, Facebook y TikTok, si existen.
+- [ ] Enlaces de Instagram, Facebook y TikTok, si existen.
 - [ ] IDs de Google Analytics y Pixel de Meta.
 
 ---

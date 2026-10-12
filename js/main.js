@@ -222,6 +222,65 @@
     });
   }
 
+  /* ---------- Estado de atención (hora de Colombia) ---------- */
+  const DAY_NAMES = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+
+  function toMinutes(time) {
+    const parts = time.split(":");
+    return Number(parts[0]) * 60 + Number(parts[1]);
+  }
+
+  function formatTime(time) {
+    const minutes = toMinutes(time);
+    const hour = Math.floor(minutes / 60);
+    const rest = String(minutes % 60).padStart(2, "0");
+    if (hour === 12 && rest === "00") return "12:00 m.";
+    return ((hour + 11) % 12) + 1 + ":" + rest + (hour < 12 ? " a. m." : " p. m.");
+  }
+
+  /** Día y minuto actuales en Bogotá, sin importar la zona horaria del visitante. */
+  function bogotaNow() {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Bogota",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(new Date());
+    const get = (type) => (parts.find((part) => part.type === type) || {}).value;
+    const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+    return { day: day, minutes: Number(get("hour")) * 60 + Number(get("minute")) };
+  }
+
+  function openStatus() {
+    const schedule = config.schedule;
+    if (!Array.isArray(schedule) || !schedule.length) return null;
+    const now = bogotaNow();
+    const today = schedule.find((slot) => slot.days.indexOf(now.day) !== -1);
+    if (today && now.minutes >= toMinutes(today.open) && now.minutes < toMinutes(today.close)) {
+      return { open: true, text: "Estamos atendiendo ahora · hasta las " + formatTime(today.close) };
+    }
+    // Próxima apertura (hoy más tarde o en los próximos días)
+    for (let offset = 0; offset < 8; offset++) {
+      const day = (now.day + offset) % 7;
+      const slot = schedule.find((item) => item.days.indexOf(day) !== -1);
+      if (!slot || (offset === 0 && now.minutes >= toMinutes(slot.open))) continue;
+      const when = offset === 0 ? "hoy" : offset === 1 ? "mañana" : "el " + DAY_NAMES[day];
+      return { open: false, text: "Escríbenos ya: te respondemos " + when + " desde las " + formatTime(slot.open) };
+    }
+    return null;
+  }
+
+  function setupOpenStatus() {
+    const status = openStatus();
+    if (!status) return;
+    qsa("[data-open-status]").forEach((node) => {
+      node.textContent = status.text;
+      node.classList.toggle("is-open", status.open);
+      node.hidden = false;
+    });
+  }
+
   /* ---------- Aparición suave al hacer scroll ---------- */
   function setupReveal() {
     if (!("IntersectionObserver" in window)) return;
@@ -255,6 +314,7 @@
     setupMenu();
     setupQuiz();
     setupLeadForm();
+    setupOpenStatus();
     setupReveal();
     const year = qs("#year");
     if (year) year.textContent = String(new Date().getFullYear());

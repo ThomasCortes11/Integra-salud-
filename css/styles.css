@@ -849,6 +849,50 @@ p {
   margin-left: auto;
 }
 
+/* ---------- Estado de atención ---------- */
+.open-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #7a4a00;
+  background: #fff4dc;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  margin: 0.4rem 0 0;
+}
+
+.open-status::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f5a524;
+  flex: none;
+}
+
+.open-status.is-open {
+  color: var(--mint-700);
+  background: #e3f8ee;
+}
+
+.open-status.is-open::before {
+  background: var(--wa);
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.2);
+}
+
+.open-status-dark {
+  margin-top: 1.2rem;
+  color: #ffd98a;
+  background: rgba(245, 165, 36, 0.12);
+}
+
+.open-status-dark.is-open {
+  color: #8ff0bd;
+  background: rgba(43, 227, 143, 0.12);
+}
+
 /* ---------- Dolores ---------- */
 .pains {
   display: grid;
