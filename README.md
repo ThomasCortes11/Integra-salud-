@@ -1,88 +1,111 @@
-# INTEGRA SALUD - Landing estatica SEO + CRO
+# INTEGRA SALUD — Página web de ventas
 
-Landing one-page estatica, lista para abrir con doble clic en `index.html` y desplegar en Netlify, Vercel, GitHub Pages o Cloudflare Pages.
+Landing de una sola página para **conseguir clientes por WhatsApp** que buscan asesoría en EPS, medicina prepagada, planes complementarios y ARL.
 
-## Estructura
+Es HTML, CSS y JavaScript puros: no hay nada que instalar ni compilar. Se publica gratis en Netlify, Vercel, Cloudflare Pages o GitHub Pages.
 
-- `index.html`
-- `404.html`
-- `config/site.config.js`
-- `css/styles.css`
-- `js/main.js`
-- `assets/`
-- `sitemap.xml`
-- `robots.txt`
-- `site.webmanifest`
+---
 
-## Como clonar para un nuevo cliente en 10 minutos
+## 🎯 Cómo convierte visitas en clientes
 
-1. Cambia los datos del negocio en `config/site.config.js`:
-   - `brand.name`, `brand.slogans`, `brand.description`, `brand.city`, `brand.domain`
-   - `contact.phoneDisplay`, `contact.phoneRaw`, `contact.phoneLink`, `contact.email`, `contact.whatsappNumber`
-   - `social.*`
-   - `theme.*` (colores)
-   - `services`, `alliedEntities`, `faqs`, `testimonials`, `cta`, `legal`
-   - `analytics.ga4Id` y `analytics.metaPixelId` (opcionales)
-2. Reemplaza logo e imagenes en `assets/`:
-   - `logo-oficial.png` (logo oficial)
-   - `hero-family.webp`
-   - `og-image.jpg` (1200x630)
-   - Favicons (`favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`, `favicon-192.png`, `favicon-512.png`)
-3. Ajusta dominio y ciudad en:
-   - `config/site.config.js` (`brand.domain`, `brand.city`)
-   - `sitemap.xml` (`<loc>`)
-   - `robots.txt` (`Sitemap:`)
-4. Verifica metadatos SEO en `index.html`:
-   - `<title>`
-   - `<meta name="description">`
-   - Open Graph y Twitter
-5. Publica en hosting estatico.
+| Elemento | Qué hace |
+| --- | --- |
+| **Héroe** | Promesa clara (“Elige bien tu EPS, prepagada o ARL. Sin enredos.”), botón de WhatsApp y una conversación de ejemplo que muestra cómo es la atención |
+| **Quiz “Encuentra tu opción”** | 3 preguntas (para quién, qué busca, nombre y ciudad). Abre WhatsApp con el caso ya escrito, así el asesor responde directo |
+| **¿Te suena familiar?** | Nombra los problemas del cliente (citas demoradas, letra pequeña, trámites) |
+| **Servicios** | 6 tarjetas; cada una abre WhatsApp con un mensaje distinto, así se sabe qué le interesa a cada cliente |
+| **Comparativo EPS vs. complementario vs. prepagada** | Contenido útil que genera confianza y posiciona en Google |
+| **3 pasos + Por qué nosotros** | Quita miedo al proceso |
+| **Preguntas frecuentes** | Responde objeciones (costo, preexistencias, traslados, ARL) |
+| **Formulario** | Nombre, ciudad, servicio y detalle → WhatsApp con el mensaje listo |
+| **Botón flotante (computador) y barra fija (celular)** | WhatsApp y Llamar siempre a un toque |
 
-## Publicacion rapida
+Todos los botones de WhatsApp (16) llevan un mensaje distinto. Cuando escriba un cliente, el mensaje te dice desde qué parte de la página llegó.
 
-### Netlify
-1. Arrastra la carpeta del proyecto al panel de Netlify.
-2. Asigna dominio personalizado.
+---
 
-### Vercel
-1. Importa repositorio o sube la carpeta.
-2. Framework preset: `Other`.
+## ✏️ Cómo editar
 
-### GitHub Pages
-1. Sube el contenido a un repositorio.
-2. Activa Pages en branch principal, carpeta root.
+| Quiero cambiar… | Dónde |
+| --- | --- |
+| Número de WhatsApp, mensaje por defecto, teléfono | `config/site.config.js` **y** busca `3184479028` en `index.html` (Ctrl+F → reemplazar todo) |
+| Textos, servicios, preguntas frecuentes | `index.html` (cada sección está marcada con un comentario `<!-- ===== -->`) |
+| Colores | `css/styles.css`, al inicio (`--navy-900`, `--wa`, etc.) |
+| Google Analytics / Pixel de Meta | `config/site.config.js` → `analytics.ga4Id` y `analytics.metaPixelId` |
+| Correo y datos del responsable de datos | `index.html` y `politica-de-privacidad.html` |
 
-### Cloudflare Pages
-1. Conecta repositorio o sube archivos.
-2. Build command vacio, output `.`
+> Si cambias una **pregunta frecuente** en `index.html`, cámbiala también en el bloque `FAQPage` del `<head>`, para que Google muestre la misma respuesta.
 
-## Conectar dominio
+### Activar testimonios
 
-1. Crea registros DNS del proveedor hacia tu plataforma:
-   - Netlify/Vercel/Cloudflare: siguen su asistente DNS.
-2. Espera propagacion (5 min a 24 h).
-3. Verifica HTTPS activo.
-4. Actualiza `brand.domain`, `canonical`, `sitemap.xml` y `robots.txt`.
+En `index.html` busca `TESTIMONIOS`. La sección está comentada para que no aparezcan textos de ejemplo. Pon testimonios **reales y autorizados**, borra las marcas de comentario (`<!--` y `-->`) y duplica el bloque `<figure>` por cada testimonio.
 
-## Formulario
+---
 
-- El formulario abre WhatsApp con datos prellenados.
-- Compatible con Netlify Forms por `data-netlify="true"`.
-- Para Formspree, reemplaza `action` del formulario por tu endpoint.
+## 📊 Medir resultados
 
-## Checklist de clonacion
+1. Crea una propiedad de **Google Analytics 4** y pega el ID (`G-XXXXXXX`) en `config/site.config.js`.
+2. Si haces publicidad en Facebook o Instagram, pega el ID del **Pixel de Meta**.
+3. Eventos que ya se envían:
+   - `generate_lead` (GA4) / `Contact` (Meta): cada clic en WhatsApp. El parámetro `source` dice cuál botón fue (`wa_hero`, `wa_quiz`, `wa_srv_prepagada`…).
+   - `click_to_call`: clics en “Llamar”.
+4. En GA4 marca `generate_lead` como **evento clave** (conversión).
 
-- [ ] Marca, ciudad y dominio actualizados.
-- [ ] WhatsApp, telefono y correo correctos.
-- [ ] Servicios y FAQ del cliente actualizados.
-- [ ] Testimonios reales (si hay autorizacion).
-- [ ] IDs GA4 y Meta Pixel configurados (opcional).
-- [ ] Logo, hero y OG image reemplazados.
-- [ ] Sitemap y robots con dominio real.
-- [ ] Prueba movil, CTA y enlaces de conversion.
-- [ ] Prueba Lighthouse (Performance/SEO/Accesibilidad/Best Practices).
+---
 
-## Nota legal
+## 🚀 Publicar
 
-Informacion de caracter informativo; las condiciones dependen de cada entidad.
-Tratamiento de datos personales conforme a la Ley 1581 de 2012 de Colombia.
+### Netlify (recomendado, gratis)
+1. Entra a [app.netlify.com/drop](https://app.netlify.com/drop) y arrastra la carpeta del proyecto.
+2. En *Domain management* conecta el dominio (`integrasalud.co`).
+3. Netlify activa HTTPS automáticamente. La página `404.html` se usa sola.
+
+### Otras opciones
+- **Vercel / Cloudflare Pages:** importa el repositorio. Framework: *Other*. Build command: vacío. Carpeta de salida: `.` (raíz).
+- **GitHub Pages:** Settings → Pages → rama `main`, carpeta `/ (root)`.
+
+### Si el dominio no es `www.integrasalud.co`
+Reemplaza `https://www.integrasalud.co` en `index.html`, `politica-de-privacidad.html`, `sitemap.xml` y `robots.txt`.
+
+### Después de publicar
+1. Registra el sitio en [Google Search Console](https://search.google.com/search-console) y envía `sitemap.xml`.
+2. Crea o actualiza el **Perfil de Empresa en Google** (Google Maps) con el enlace a la página. Es la fuente número uno de clientes locales.
+3. Prueba cómo se ve al compartir el enlace con el [depurador de Facebook](https://developers.facebook.com/tools/debug/).
+4. Mide velocidad y calidad con [PageSpeed Insights](https://pagespeed.web.dev/).
+
+Para verla en tu computador basta con abrir `index.html` con doble clic.
+
+---
+
+## 📁 Estructura
+
+```text
+index.html                    Página principal (todo el contenido)
+politica-de-privacidad.html   Política de tratamiento de datos (Ley 1581 de 2012)
+404.html                      Página de error
+config/site.config.js         WhatsApp, teléfono y analítica
+css/styles.css                Estilos (paleta del logo, responsive)
+js/main.js                    Quiz, formulario, menú, enlaces de WhatsApp y medición
+assets/                       Logo, símbolo, favicons e imagen para compartir (og-image.jpg)
+favicon.ico, site.webmanifest, sitemap.xml, robots.txt
+```
+
+---
+
+## ✅ Pendientes del cliente
+
+- [ ] Confirmar o comprar el dominio `integrasalud.co`.
+- [ ] Correo propio del negocio (p. ej. `contacto@integrasalud.co`) en lugar de `Saludtotal390@gmail.com`.
+- [ ] Razón social y NIT (o cédula) del responsable, para la política de datos.
+- [ ] Confirmar que la cifra “+500 personas asesoradas” es real.
+- [ ] Confirmar el costo de la asesoría (si es gratis, decirlo vende más: “Asesoría sin costo”).
+- [ ] Confirmar con qué entidades se trabaja realmente (Colmédica, Allianz, Sura, Salud Total, Compensar).
+- [ ] Horario de atención.
+- [ ] Testimonios reales con autorización (nombre, ciudad y texto).
+- [ ] Foto real del asesor o del equipo (aumenta mucho la confianza).
+- [ ] Enlaces reales de Instagram, Facebook y TikTok, si existen.
+- [ ] IDs de Google Analytics y Pixel de Meta.
+
+---
+
+**Aviso legal:** la información del sitio es orientativa; coberturas, condiciones y precios dependen de cada entidad.
