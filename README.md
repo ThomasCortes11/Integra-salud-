@@ -96,11 +96,10 @@ favicon.ico, site.webmanifest, sitemap.xml, robots.txt
 
 ## ✅ Pendientes del cliente
 
-**Ya definido:** asesoría sin costo para el cliente · NIT 53092222 · horario L-V 7:00 a. m.–5:00 p. m. y sábados 7:00 a. m.–12:00 m. · entidades: Sura, Sanitas, Colsanitas, Compensar, Nueva EPS, Salud Total, Famisanar y Colmédica · correo actual `Saludtotal390@gmail.com`.
+**Ya definido:** asesoría sin costo para el cliente · NIT 53092222 · horario L-V 7:00 a. m.–5:00 p. m. y sábados 7:00 a. m.–12:00 m. · entidades: Sura, Sanitas, Colsanitas, Compensar, Nueva EPS, Salud Total, Famisanar y Colmédica · correo actual `Saludtotal390@gmail.com` · +500 clientes asesorados (confirmado).
 
 - [ ] Comprar el dominio (`integrasalud.co` u otro) y, si cambia, reemplazarlo como se indica arriba.
 - [ ] (Opcional) correo propio con el dominio, p. ej. `contacto@integrasalud.co`.
-- [ ] Confirmar que la cifra “+500 personas asesoradas” es real (en `index.html`, sección héroe).
 - [ ] Testimonios reales con autorización (nombre, ciudad y texto), cuando los haya.
 - [ ] Foto real del asesor o del equipo (aumenta mucho la confianza).
 - [ ] Enlaces de Instagram, Facebook y TikTok, si existen.

@@ -298,9 +298,9 @@
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
     );
 
+    // Ninguno de estos elementos está en la primera pantalla (el héroe no se anima), así que
+    // no hace falta medir posiciones: el observador decide cuándo mostrarlos.
     targets.forEach((element) => {
-      // Solo se anima lo que aún no se ve, para no ocultar contenido ya visible.
-      if (element.getBoundingClientRect().top < window.innerHeight) return;
       const siblings = element.parentElement ? Array.from(element.parentElement.children) : [];
       element.style.transitionDelay = Math.min(siblings.indexOf(element), 5) * 70 + "ms";
       element.classList.add("reveal");
@@ -315,7 +315,9 @@
     setupQuiz();
     setupLeadForm();
     setupOpenStatus();
-    setupReveal();
+    // Las animaciones de aparición esperan a que el navegador esté libre.
+    if ("requestIdleCallback" in window) window.requestIdleCallback(setupReveal, { timeout: 1200 });
+    else window.setTimeout(setupReveal, 300);
     const year = qs("#year");
     if (year) year.textContent = String(new Date().getFullYear());
   }

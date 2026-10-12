@@ -273,7 +273,7 @@ p {
 .brand-text span {
   font-size: 0.72rem;
   letter-spacing: 0.42em;
-  font-weight: 700;
+  font-weight: 800;
   background: linear-gradient(90deg, #4ea3ff, var(--mint-400));
   -webkit-background-clip: text;
   background-clip: text;
@@ -290,7 +290,7 @@ p {
 .main-nav a {
   color: #d7e4f5;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.95rem;
   padding: 0.55rem 0.8rem;
   border-radius: 999px;
@@ -373,7 +373,7 @@ p {
   align-items: center;
   gap: 0.55rem;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #cfe3ff;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -566,7 +566,7 @@ p {
 
 .entities-title {
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
@@ -586,7 +586,7 @@ p {
 .entities-list li {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #6a7b93;
+  color: var(--muted);
   letter-spacing: -0.01em;
 }
 
@@ -717,7 +717,7 @@ p {
 .step-num {
   display: block;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--muted);
   margin-bottom: 0.2rem;
 }
@@ -750,7 +750,7 @@ p {
   padding: 0.75rem 1rem;
   border: 2px solid var(--line);
   border-radius: 14px;
-  font-weight: 700;
+  font-weight: 800;
   background: #fff;
   transition: border-color 150ms ease, background-color 150ms ease;
 }
@@ -773,12 +773,12 @@ p {
   display: grid;
   gap: 0.35rem;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.95rem;
 }
 
 .field em {
-  font-weight: 500;
+  font-weight: 400;
   color: var(--muted);
   font-style: normal;
 }
@@ -787,7 +787,7 @@ p {
 .field select,
 .field textarea {
   font: inherit;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1rem;
   min-height: 50px;
   padding: 0.7rem 0.9rem;
@@ -818,6 +818,11 @@ p {
   color: var(--muted);
   margin: 0.2rem 0 1rem;
   cursor: pointer;
+}
+
+.consent a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .consent input {
@@ -855,7 +860,7 @@ p {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #7a4a00;
   background: #fff4dc;
   border-radius: 999px;
@@ -984,7 +989,7 @@ p {
 .table-hint {
   display: none;
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--muted);
   text-align: right;
   margin: 0 0 0.5rem;
@@ -1212,7 +1217,7 @@ p {
   background: var(--bg-soft);
   color: var(--blue-600);
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   transition: transform 200ms ease;
 }
 
@@ -1259,7 +1264,7 @@ p {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .contact-list .icon {
@@ -1372,6 +1377,11 @@ p {
 
 .legal p {
   margin: 0 0 0.4rem;
+}
+
+.legal a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* ---------- WhatsApp flotante y barra móvil ---------- */
